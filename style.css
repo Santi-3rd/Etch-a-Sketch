@@ -1,0 +1,12 @@
+.grid {
+    background-color: teal;
+    height: 500px;
+    width: 500px;
+    padding: 5px;
+}
+
+.gridSquare {
+    background-color: aliceblue;
+    height: 50px;
+    width: 50px;
+}
