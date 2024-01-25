@@ -4,6 +4,8 @@ const content = document.createElement('div');
 content.classList.add('grid');
 let gridSize = 16;
 let rainbowMode = document.querySelector('#rainbow');
+let shaderMode = document.querySelector('#shading');
+
 createGrid()
 
 let size = document.querySelector('#size')
@@ -13,7 +15,11 @@ let size = document.querySelector('#size')
             gridSize = sizeNum
             createGrid()
         }
+    }
 
+let clear = document.querySelector('#clear')
+    clear.onclick = function(){
+        createGrid()
     }
 
 function createGrid() {
@@ -26,31 +32,27 @@ function createGrid() {
         gridSquare.style.width = `calc(100%/ ${gridSize})`;
         gridSquare.style.height = `calc(100%/ ${gridSize})`;
         content.appendChild(gridSquare);
-        Painter(gridSquare)
+        painter(gridSquare)
         }
 }   
 
+function painter(gridSquare){
+    let alpha = 0.1
+    gridSquare.addEventListener("mouseover", event => {
+        if (rainbowMode.checked){ 
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        gridSquare.style.backgroundColor = shaderMode.checked ? "rgba(" + r + "," + g + "," + b + "," + alpha + ")" : "rgb(" + r + "," + g + "," + b + ")";
+        } else {
+            gridSquare.style.backgroundColor = shaderMode.checked ? "rgba(0, 0, 0, " + alpha + ")" : "rgb(0, 0, 0)";
+        }
 
-function Painter(gridSquare){
-    console.log(rainbowMode.checked)
-    if (rainbowMode.checked){
-        gridSquare.addEventListener("mouseover", event => {
-            let r = Math.floor(Math.random() * 256);
-            let g = Math.floor(Math.random() * 256);
-            let b = Math.floor(Math.random() * 256);
-            gridSquare.style.backgroundColor =  + r + g + b;
-        });
-    } else {
-        gridSquare.addEventListener("mouseover", event => {
-            gridSquare.style.backgroundColor = "black"
-        });
-    }
+        if (shaderMode.checked && alpha < 1) {
+            alpha += 0.1
+        }
+    });
 }
-
-let clear = document.querySelector('#clear')
-    clear.onclick = function(){
-        createGrid()
-    }
 
 
 
