@@ -3,6 +3,8 @@ const container = document.querySelector('#container');
 const content = document.createElement('div');
 content.classList.add('grid');
 let gridSize = 16;
+let rainbowMode = document.querySelector('#rainbow');
+console.log(rainbowMode)
 createGrid()
 
 let size = document.querySelector('#size')
@@ -25,17 +27,27 @@ function createGrid() {
         gridSquare.style.width = `calc(100%/ ${gridSize})`;
         gridSquare.style.height = `calc(100%/ ${gridSize})`;
         content.appendChild(gridSquare);
-        hover(gridSquare)
+        Painter(gridSquare)
         }
 }   
 
 
-
-function hover(gridSquare){
-    gridSquare.addEventListener("mouseover", event => {
-        gridSquare.style.backgroundColor = "black"
-    });
+function Painter(gridSquare){
+    if (rainbowMode.checked){
+        
+    } else {
+        gridSquare.addEventListener("mouseover", event => {
+            gridSquare.style.backgroundColor = "black"
+        });
+    }
 }
+
+let clear = document.querySelector('#clear')
+    clear.onclick = function(){
+        createGrid()
+    }
+
+
 
 
 container.appendChild(content);
