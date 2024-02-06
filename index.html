@@ -8,13 +8,21 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    <h1>Etch-a-Sketch</h1>
-    <button id="size">Grid Size</button>
-    <input type="checkbox" id="rainbow" name="rainbow">
-    <label for="rainbow">Rainbow Mode</label>
-    <input type="checkbox" id="shading" name="shading">
-    <label for="shading">Shader Mode</label>
-    <button id="clear">Clear</button>
+    <div>
+        <h1>Etch-a-Sketch</h1>
+    </div>
+    <div id="buttons">
+        <div class="slider-container">
+            <input type="range" min="16" max="100" value="16" class="slider" id="numberSlider">
+            <output class="slider-value" id="selectedNumber">16</output>
+        </div>
+        <!-- <button id="size">Grid Size</button> -->
+        <input type="checkbox" id="rainbow" name="rainbow">
+        <label for="rainbow">Rainbow Mode</label>
+        <input type="checkbox" id="shading" name="shading">
+        <label for="shading">Shader Mode</label>
+        <button id="clear">Clear</button>
+    </div>
     <div id="container"></div>
 </body>
 </html>

@@ -8,14 +8,22 @@ let shaderMode = document.querySelector('#shading');
 
 createGrid()
 
-let size = document.querySelector('#size')
-    size.onclick = function(){
-        sizeNum = prompt("Please enter a grid size between 16 and 100.")
-        if (sizeNum <= 100 && sizeNum > 16) {
-            gridSize = sizeNum
-            createGrid()
-        }
-    }
+
+const slider = document.getElementById('numberSlider');
+
+slider.oninput = function() {
+    const selectedNumber = this.value;
+    gridSize = selectedNumber
+    createGrid();
+};
+// let size = document.querySelector('#size')
+//     size.onclick = function(){
+//         sizeNum = prompt("Please enter a grid size between 16 and 100.")
+//         if (sizeNum <= 100 && sizeNum > 16) {
+//             gridSize = sizeNum
+//             createGrid()
+//         }
+//     }
 
 let clear = document.querySelector('#clear')
     clear.onclick = function(){
