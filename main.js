@@ -16,14 +16,6 @@ slider.oninput = function() {
     gridSize = selectedNumber
     createGrid();
 };
-// let size = document.querySelector('#size')
-//     size.onclick = function(){
-//         sizeNum = prompt("Please enter a grid size between 16 and 100.")
-//         if (sizeNum <= 100 && sizeNum > 16) {
-//             gridSize = sizeNum
-//             createGrid()
-//         }
-//     }
 
 let clear = document.querySelector('#clear')
     clear.onclick = function(){
